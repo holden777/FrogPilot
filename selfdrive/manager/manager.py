@@ -2,6 +2,7 @@
 import datetime
 import os
 import signal
+import subprocess
 import sys
 import traceback
 from typing import List, Tuple, Union
@@ -185,6 +186,9 @@ def main() -> None:
   # Remove the prebuilt file to prevent boot failures
   if os.path.exists("/data/openpilot/prebuilt"):
     os.remove("/data/openpilot/prebuilt")
+
+  # Set the desired model on boot
+  subprocess.run(["python3", "/data/openpilot/selfdrive/frogpilot/functions/model_switcher.py"])
 
   # SystemExit on sigterm
   signal.signal(signal.SIGTERM, lambda signum, frame: sys.exit(1))

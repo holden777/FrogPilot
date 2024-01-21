@@ -12,9 +12,6 @@
 #include "common/util.h"
 #include "common/watchdog.h"
 #include "system/hardware/hw.h"
-
-#include "selfdrive/frogpilot/ui/frogpilot_functions.h"
-
 #define BACKLIGHT_DT 0.05
 #define BACKLIGHT_TS 10.00
 
@@ -402,7 +399,6 @@ UIState::UIState(QObject *parent) : QObject(parent) {
 
   wifi = new WifiManager(this);
 
-  setDefaultParams();
   ui_update_frogpilot_params(this);
 }
 

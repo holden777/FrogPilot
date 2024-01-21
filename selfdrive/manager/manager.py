@@ -182,6 +182,10 @@ def main() -> None:
   if os.getenv("PREPAREONLY") is not None:
     return
 
+  # Remove the prebuilt file to prevent boot failures
+  if os.path.exists("/data/openpilot/prebuilt"):
+    os.remove("/data/openpilot/prebuilt")
+
   # SystemExit on sigterm
   signal.signal(signal.SIGTERM, lambda signum, frame: sys.exit(1))
 

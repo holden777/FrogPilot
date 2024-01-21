@@ -43,7 +43,7 @@ def manager_init() -> None:
   if is_release_branch():
     params.clear_all(ParamKeyType.DEVELOPMENT_ONLY)
 
-  FrogsGoMoo = HARDWARE.get_serial() == "cff"
+  FrogsGoMoo = get_short_branch() == "FrogPilot-Development"
 
   default_params: List[Tuple[str, Union[str, bytes]]] = [
     ("CompletedTrainingVersion", "0"),

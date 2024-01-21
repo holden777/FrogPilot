@@ -91,7 +91,7 @@ class ConditionalExperimentalMode:
       return self.experimental_mode
 
     # Keep Experimental Mode active if slowing down for a red light
-    if self.slowing_down and self.status_value == 12 and not self.lead_slowing_down:
+    if self.slowing_down and self.status_value == 12:
       return True
 
     # Navigation check
